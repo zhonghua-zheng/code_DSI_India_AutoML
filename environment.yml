@@ -1,0 +1,22 @@
+channels:
+- conda-forge
+- defaults
+
+dependencies:
+- python=3.8.0
+- numpy
+- pandas
+- scipy
+- scikit-learn
+- xarray
+- jupyter
+- matplotlib
+- py-xgboost
+- lightgbm
+- shap
+- fastparquet
+- pip
+- pip:
+  - flaml==0.6.0
+  - netCDF4==1.5.7
+name: flaml

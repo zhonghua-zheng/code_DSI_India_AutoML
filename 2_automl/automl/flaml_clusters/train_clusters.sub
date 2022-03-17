@@ -1,0 +1,27 @@
+#!/bin/bash
+### Job Name
+#PBS -N clusters
+### Project code
+#PBS -A your_project
+#PBS -l walltime=12:00:00
+#PBS -q regular
+### Merge output and error files
+#PBS -j oe
+### Select 1 nodes with 36 CPUs 
+#PBS -l select=1:ncpus=36
+### Send email on abort, begin and end
+#PBS -m abe
+### Specify mail recipient
+#PBS -M your_email_address
+
+source /glade/work/zhonghua/miniconda3/bin/activate flaml
+python train_clusters.py "daily" "["aod","emission","met","gas"]"
+python train_clusters.py "daily" "["aod","emission","met"]"
+
+python train_clusters.py "monthly_le" "["aod","emission","met","gas"]"
+python train_clusters.py "monthly_le" "["aod","emission","met"]"
+
+python train_clusters.py "monthly" "["aod","emission","met","gas"]"
+python train_clusters.py "monthly" "["aod","emission","met"]"
+ 
+# End of script
